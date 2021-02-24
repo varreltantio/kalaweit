@@ -1,0 +1,39 @@
+.chatroom {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+  border: 1px solid #cfcfcf;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #cfcfcf;
+}
+.chatinfo {
+  margin-left: 10px;
+}
+.chatinfo h3 {
+  color: #000;
+  margin-bottom: 10px;
+  font-size: 18px !important;
+}
+.chatinfo .common-nav-list {
+  display: flex;
+  margin-left: -40px;
+}
+.chatinfo ol, .chatinfo ul {
+  list-style: none;
+}
+.chatinfo .icon-chatinfo {
+  margin-right: 10px;
+  margin-left: 5px;
+  margin-bottom: 3px;
+  color: #646464;
+}
+.swal-button--ulangi {
+  background-color: #ff0000;
+}
+.swal-button--ulangi:not([disabled]):hover {
+  background-color: #ff0000;
+}
+.swal-text {
+  text-align: center;
+}
