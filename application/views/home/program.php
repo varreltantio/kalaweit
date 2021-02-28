@@ -22,7 +22,7 @@
   </nav>
   <!-- akhir navbar -->
 
-  <div class="container container-program">
+  <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-md-10 main">
         <?php if ($program) : ?>

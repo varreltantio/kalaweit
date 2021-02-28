@@ -1,4 +1,4 @@
-<body class="container-butik">
+<body class="content-butik">
   <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-light sticky-top">
     <div class="container">

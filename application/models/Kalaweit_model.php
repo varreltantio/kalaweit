@@ -17,6 +17,12 @@ class Kalaweit_model extends CI_Model
     return $this->db->get('program')->result_array();
   }
 
+  public function get_youtube()
+  {
+    $this->db->order_by('id', 'DESC');
+    return $this->db->get('youtube')->result_array();
+  }
+
   public function get_misi_detail($id)
   {
     return $this->db->get_where('misi', ['id' => $id])->row_array();

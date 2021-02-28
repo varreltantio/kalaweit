@@ -22,36 +22,46 @@
   </nav>
   <!-- akhir navbar -->
 
-  <div class="container container-misi">
-    <div class="row justify-content-between">
-      <div class="col-md-8 main">
-        <?php if ($misi) : ?>    
-          <h3 class="mb-4"><?= $misi['title'] ?></h3>
-          <img src="<?= base_url('assets/img/misi/') . $misi['thumbnail'] ?>" width="50%">
-          <p><?= $misi['description'] ?></p>    
-        <?php else : ?>
-          <h3>MISI TIDAK DITEMUKAN</h3>
-        <?php endif ?>
-      </div>
-
-      <div class="col-md-3 sidebar">
-        <h3>Misi Lainnya</h3>
-        <div class="widget-content">
-          <ul>
-            <?php foreach ($missions as $misi) : ?>
-              <?php $id = $_GET['id'] ?>
-              <?php if ($misi['id'] != $id) : ?>
-                <li>
-                  <div class="item-misi">
-                    <img src="<?= base_url('assets/img/misi/') . $misi['thumbnail'] ?>" alt=<?= $misi['title'] ?> class="mt-5">
-                    <h5><?= $misi['title'] ?></h5>
-                    <a href="<?= base_url('home/misi?id=' . $misi['id']) ?>" >Baca Selengkapnya...</a>
-                  </div>
-                </li>
-              <?php endif ?>
-            <?php endforeach ?>
-          </ul>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-9 col-md-12">
+        <!-- Add New Post Form -->
+        <div class="card card-small main mb-3">
+          <div class="card-body">
+            <?php if ($misi) : ?>   
+              <h3 class="mb-4 header"><?= $misi['title'] ?></h3>
+              <img src="<?= base_url('assets/img/misi/') . $misi['thumbnail'] ?>" width="50%" class="mb-3">
+              <p><?= $misi['description'] ?></p>    
+            <?php else : ?>
+              <h3>MISI TIDAK DITEMUKAN</h3>
+            <?php endif ?>
+          </div>
         </div>
+        <!-- / Add New Post Form -->
+      </div>
+      <div class="col-lg-3 col-md-12">
+        <!-- Post Overview -->
+        <div class='card card-small sidebar'>
+          <div class="card-header border-bottom">
+            <h6 class="m-0 header-sidebar">Misi Lainnya</h6>
+          </div>
+          <div class='card-body p-0'>
+            <ul class="list-group list-group-flush">
+              <?php foreach ($missions as $misi) : ?>
+                <?php $id = $_GET['id'] ?>
+                <?php if ($misi['id'] != $id) : ?>
+                  <li class="item-misi text-center">     
+                    <img src="<?= base_url('assets/img/misi/') . $misi['thumbnail'] ?>" alt=<?= $misi['title'] ?> width="100%">
+                    <h5 class="mt-3"><?= $misi['title'] ?></h5>
+                    <a href="<?= base_url('home/misi?id=' . $misi['id']) ?>" >Baca Selengkapnya...</a>     
+                  </li>
+                  <div class="divider"></div>
+                <?php endif ?>
+              <?php endforeach ?>
+            </ul>
+          </div>
+        </div>
+        <!-- / Post Overview -->
       </div>
     </div>
   </div>

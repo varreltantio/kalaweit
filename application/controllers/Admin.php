@@ -64,7 +64,7 @@ class Admin extends CI_Controller {
     $this->load->view('templates/admin_footer'); 
   }
 
-  public function save(){
+  public function save() {
 		$id = $this->input->post('id',TRUE);
 		$name = $this->input->post('name',TRUE);
 		$title = $this->input->post('title',TRUE);
@@ -84,7 +84,16 @@ class Admin extends CI_Controller {
       $this->load->library('upload', $config);
       $this->upload->initialize($config);
 
-      if ($this->upload->do_upload('image')) {   
+      if ($this->upload->do_upload('image')) {
+
+        if ($name == 'misi') {
+          $data['content'] = $this->Kalaweit_model->get_misi_detail($id);
+        } else {
+          $data['content'] = $this->Kalaweit_model->get_program_detail($id);
+        }
+
+        unlink(FCPATH . 'assets/img/' . $name . '/' . $data['content']['thumbnail']);   
+
         $new_image = $this->upload->data('file_name');
         $this->db->set('thumbnail', $new_image);
       } else {
@@ -111,7 +120,7 @@ class Admin extends CI_Controller {
 	}
 
 	//Upload image summernote
-	public function upload_image(){
+	public function upload_image() {
 		if(isset($_FILES["image"]["name"])){
 			$config['upload_path'] = './assets/img/desc/';
 			$config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -139,11 +148,130 @@ class Admin extends CI_Controller {
 	}
 
 	//Delete image summernote
-	public function delete_image(){
+	public function delete_image() {
 		$src = $this->input->post('src');
 		$file_name = str_replace(base_url(), '', $src);
 		if(unlink($file_name)){
 	    echo 'File Delete Successfully';
 	  }
+	}
+
+  public function profile() {
+    $data['title'] = 'Profile';
+    $data['navbar'] = 'profile';
+
+    $data['admin'] = $this->Kalaweit_model->get_admin();
+    $data['missions'] = $this->Kalaweit_model->get_misi();
+
+    $this->load->view('templates/admin_header', $data);
+    $this->load->view('templates/admin_navbar', $data);
+    $this->load->view('admin/profile', $data);
+    $this->load->view('templates/admin_footer');
+  }
+
+  public function changepassword()
+  {
+    $data['title'] = 'Change Password';
+    $data['navbar'] = 'profile';
+
+    $data['admin'] = $this->Kalaweit_model->get_admin();
+
+    $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
+    $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[6]|matches[new_password2]');
+    $this->form_validation->set_rules('new_password2', 'New Password', 'required|trim|min_length[6]|matches[new_password1]');
+
+    if ($this->form_validation->run() == false) {
+      $this->load->view('templates/admin_header', $data);
+      $this->load->view('templates/admin_navbar', $data);
+      $this->load->view('admin/changepassword', $data);
+      $this->load->view('templates/admin_footer');
+    } else {
+      $current_password = $this->input->post('current_password');
+      $new_password = $this->input->post('new_password1');
+
+      if (!password_verify($current_password, $data['admin']['password'])) {
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong current password</div>');
+        redirect('admin/changepassword');
+      } else {
+        if ($current_password == $new_password) {
+          $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">New password cannot be the same as current password</div>');
+          redirect('admin/changepassword');
+        } else {
+          //  if password correct
+          $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+          // change password
+          $this->db->set('password', $password_hash);
+          $this->db->where('email', $this->session->userdata('email'));
+          $this->db->update('admin');
+
+          $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password has been changed</div>');
+          redirect('admin/changepassword');
+        }
+      }
+    }
+  }
+
+  public function youtube() {
+    $data['title'] = 'Youtube';
+    $data['navbar'] = 'youtube';
+
+    $data['admin'] = $this->Kalaweit_model->get_admin();
+    $data['youtubes'] = $this->Kalaweit_model->get_youtube();
+
+    $this->load->view('templates/admin_header', $data);
+    $this->load->view('templates/admin_navbar', $data);
+    $this->load->view('admin/youtube', $data);
+    $this->load->view('templates/admin_footer');
+  }
+
+  public function upload() {
+		$title = $this->input->post('title',TRUE);
+		$link = $this->input->post('link',TRUE);
+
+		// jika ada gambar yang diupload
+    $upload_image = $_FILES['image']['name'];
+
+    if ($upload_image) {
+      $newFileName = strtolower(random_string('alnum', 4)) . time();
+
+      $config['allowed_types'] = 'gif|jpg|png';
+      $config['max_size']     = '2048';
+      $config['upload_path'] = './assets/img/youtube/';
+      $config['file_name'] = $newFileName;
+
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+
+      if ($this->upload->do_upload('image')) {   
+        $thumbnail = $this->upload->data('file_name');
+
+        $dataYoutube = [
+          'title' => $title,
+          'link' => $link,
+          'thumbnail' => $thumbnail,
+        ];
+
+        $this->db->insert('youtube', $dataYoutube);
+
+        $totalYT = $this->db->get('youtube')->num_rows();
+
+        if ($totalYT > 5) {
+          $youtube = $this->db->get('youtube')->row_array();
+  
+          unlink(FCPATH . 'assets/img/youtube/' . $youtube['thumbnail']);
+  
+          $this->db->where('id', $youtube['id']);
+          $this->db->delete('youtube');
+        }
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Video telah ditambah</div>');
+      } else {
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
+        redirect('admin/youtube');
+      }
+    }
+
+    redirect('admin/youtube');
 	}
 }

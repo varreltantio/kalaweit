@@ -11,6 +11,7 @@ class Home extends CI_Controller {
     $data['title'] = 'Kalaweit';
     $data['missions'] = $this->Kalaweit_model->get_misi();
     $data['programs'] = $this->Kalaweit_model->get_program();
+    $data['youtubes'] = $this->Kalaweit_model->get_youtube();
     
     $this->load->view('templates/header', $data);
     $this->load->view('home/index');

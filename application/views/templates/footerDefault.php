@@ -2,13 +2,13 @@
   <footer id="about">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-md-4">
+        <div class="col-md-3 text-center">
           <h3>About</h3>
           <img src=<?= base_url("assets/img/logo-kehutanan.png") ?> width="80" class="mt-3 mb-3"/>
           <p class="text-justify">Yayasan Kalaweit Indonesia bekerja sama dengan Kementerian Lingkungan Hidup dan Kehutanan RI</p>
         </div>
 
-        <div class="col-md-3 ml-auto">
+        <div class="col-md-5 text-center">
           <h3>Social Media</h3>
           <ul class="list-unstyled list-inline social">
             <li class="list-inline-item">
@@ -26,7 +26,7 @@
           </ul>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 contact">
           <h3>Kontak</h3>
           <h5>Alamat :</h5>
           <p>Yayasan Kalaweit Indonesia<br>Komplek Mahoni Lestari 1 N3<br>Jl Pinus, Panarung, Palangka Raya<br>Kalimantan Tengah</p>
@@ -44,7 +44,7 @@
   </footer>
   <!-- akhir footer -->
 
-  <script src=<?= base_url("js/jquery-3.4.1.min.js") ?>></script>
+  <script src=<?= base_url("assets/js/jquery-3.4.1.min.js") ?>></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <!-- My JS -->
   <script src=<?= base_url("assets/js/script.js") ?>></script>

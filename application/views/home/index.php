@@ -86,7 +86,9 @@
       <?php foreach ($missions as $misi) : ?>
         <div class="col-md-4">
           <div class="item-misi">
-            <img src="<?= base_url('assets/img/misi/') .  $misi['thumbnail'] ?>" alt="" width="200">
+            <div class="item-img">
+              <img src="<?= base_url('assets/img/misi/') .  $misi['thumbnail'] ?>" alt="<?= $misi['thumbnail'] ?>" width="100%">      
+            </div>
             <h5><?= $misi['title'] ?></h5>
             <?php
               $short_desc = substr($misi['description'], 0, 100);
@@ -221,58 +223,17 @@
       </div>
       <div class="row">
         <div class="owl-carousel">  
-          <?php if ($result) : ?>
-            <?php foreach($result['items'] as $item) : ?>
+          <?php if ($youtubes) : ?>
+            <?php foreach($youtubes as $youtube) : ?>
               <div class="col-lg">
                 <div class="card pb-5">
-                  <a href="https://www.youtube.com/watch?v=<?= $item['id']['videoId'] ?>" target="_blank"><img src=<?= $item['snippet']['thumbnails']['high']['url'] ?> class="card-img-top" alt="<?= $item['snippet']['title'] ?>"></a>
+                  <a href="<?= $youtube['link'] ?>" target="_blank"><img src="<?= base_url('assets/img/youtube/') . $youtube['thumbnail'] ?>" class="card-img-top" alt="<?= $youtube['title'] ?>"></a>
                   <div class="card-body">
-                    <h5><a href="https://www.youtube.com/watch?v=<?=  $item['id']['videoId'] ?>" target="_blank" class="text-decoration-none"><?= $item['snippet']['title'] ?></a></h5>
+                    <h5><a href="<?= $youtube['link'] ?>" target="_blank" class="text-decoration-none"><?= $youtube['title'] ?></a></h5>
                   </div>
                 </div>
               </div>
             <?php endforeach ?>
-          <?php else : ?>
-            <div class="col-lg">
-              <div class="card pb-5">
-                <a href="https://www.youtube.com/watch?v=7w7C-9T3sTk"><img src="https://i.ytimg.com/vi/7w7C-9T3sTk/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&amp;rs=AOn4CLBIItO-I-lYQpKShN1hA8k7-niTng" class="card-img-top" alt="youtube 1"></a>
-                <div class="card-body">
-                  <h5><a href="https://www.youtube.com/watch?v=7w7C-9T3sTk" class="text-decoration-none">Pernah diancam selama kerja di dunia konservasi di INDONESIA ?</a></h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg">
-              <div class="card pb-5">
-                <a href="https://www.youtube.com/watch?v=Gemht4Lu8vw"><img src="https://i.ytimg.com/vi/Gemht4Lu8vw/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&amp;rs=AOn4CLA_RUoD1Frxo4vweCiHE2aaPq8xOA" class="card-img-top" alt="youtube 2"></a>
-                <div class="card-body">
-                  <h5><a href="https://www.youtube.com/watch?v=Gemht4Lu8vw" class="text-decoration-none">Sedih dan senang di Kalaweit... Akhirnya di terima dalam keluarga owa !</a></h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg">
-              <div class="card pb-5">
-                <a href="https://www.youtube.com/watch?v=X3sSN3yARts"><img src="https://i.ytimg.com/vi/X3sSN3yARts/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&amp;rs=AOn4CLD-T4ol5vxWMvhwbwltcuXfgwT7yg" class="card-img-top" alt="youtube 3"></a>
-                <div class="card-body">
-                  <h5><a href="https://www.youtube.com/watch?v=X3sSN3yARts" class="text-decoration-none">Belajar tentang JEJAK SATWA #1... dan Hujan badai di HUTAN</a></h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg">
-              <div class="card pb-5">
-                <a href="https://www.youtube.com/watch?v=9NjNC5hWAow"><img src="https://i.ytimg.com/vi/9NjNC5hWAow/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&amp;rs=AOn4CLDdU4ynn9suDwELjqnnWdYMom_z3A" class="card-img-top" alt="youtube 4"></a>
-                <div class="card-body">
-                  <h5><a href="https://www.youtube.com/watch?v=9NjNC5hWAow" class="text-decoration-none">OWA SEKARAT perlu di bantu... dan dapat lagi HARIMAU di kamera trap !</a></h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg">
-              <div class="card pb-5">
-                <a href="https://www.youtube.com/watch?v=DsJqHk0zhBw"><img src="https://i.ytimg.com/vi/DsJqHk0zhBw/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&amp;rs=AOn4CLAfrL9Mh4KIDvGDHBn2WcFwR8j3gQ" class="card-img-top" alt="youtube 5"></a>
-                <div class="card-body">
-                  <h5><a href="https://www.youtube.com/watch?v=DsJqHk0zhBw" class="text-decoration-none">Bercanda saat UNBOXING SILVER PLAY BUTTON dengan KELUARGA !</a></h5>
-                </div>
-              </div>
-            </div>
           <?php endif; ?>
         </div>
       </div>

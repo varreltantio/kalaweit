@@ -21,21 +21,21 @@
             <input type="text" name="title" class="form-control" value="<?= $content['title'] ?>" required>
           </div>
           <div class="form-group row">
-              <div class="col-sm-2">Picture</div>
-              <div class="col-sm-10">
-                <div class="row">
-                  <div class="col-sm-4">
-                    <img src="<?= base_url('assets/img/') . $name . "/" . $content['thumbnail'] ?>" class="img-thumbnail">
-                  </div>
-                  <div class="col-sm-8">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="image" name="image">
-                      <label class="custom-file-label" for="image">Choose Image</label>
-                    </div>
+            <div class="col-sm-2">Picture</div>
+            <div class="col-sm-10">
+              <div class="row">
+                <div class="col-sm-4">
+                  <img src="<?= base_url('assets/img/') . $name . "/" . $content['thumbnail'] ?>" class="img-thumbnail">
+                </div>
+                <div class="col-sm-8">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="image" name="image">
+                    <label class="custom-file-label" for="image">Choose Image</label>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
           <div class="form-group">
             <label>Contents</label>
             <textarea id="summernote" name="contents"><?= $content['description'] ?></textarea>

@@ -6,7 +6,7 @@
         <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
           <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
             <div class="d-table m-auto">
-              <img id="main-logo" class="d-inline-block align-top mr-1" width="90" src=<?= base_url() . "assets/logo.png"?>  alt="Shards Dashboard">
+              <img id="main-logo" class="d-inline-block align-top mr-1" width="90" src=<?= base_url() . "assets/img/logo.png"?>  alt="Shards Dashboard">
             </div>
           </a>
           <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
@@ -28,6 +28,12 @@
               <span>Program</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link <?= ($navbar == 'youtube') ? 'active' : ''; ?>" href=<?=  base_url() . 'admin/youtube' ?> >
+              <i class="material-icons">live_tv</i>
+              <span>Youtube</span>
+            </a>
+          </li>
         </ul>
       </div>
     </aside>
@@ -47,7 +53,11 @@
                 <span class="d-none d-md-inline-block"><?= $admin['username'] ?></span>
               </a>
               <div class="dropdown-menu dropdown-menu-small">
-                <a class="dropdown-item text-danger" href=<?= base_url('auth/logout') ?>>
+                <a class="dropdown-item" href="<?= base_url('admin/profile') ?>">
+                  <i class="material-icons">&#xE7FD;</i> 
+                  Profile
+                </a>
+                <a class="dropdown-item text-danger" href="<?= base_url('auth/logout') ?>">
                   <i class="material-icons text-danger">&#xE879;</i> 
                   Logout 
                 </a>
