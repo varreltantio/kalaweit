@@ -1,0 +1,46 @@
+.content-program {
+  .main {
+    h3 {
+      font-weight: 900 !important;
+      font-size: 32px;
+    }
+    img {
+      margin: 30px 0;
+    }
+  }
+
+  .content-widget {
+    background: #ffffff none repeat scroll 0 0;
+    border: 1px solid #e4e4e4;
+    margin-top: 150px;
+    padding: 0 5px 5px 15px;
+    
+    .header-widget {
+      margin: 30px 0;
+      text-align: center;
+      font-weight: 900 !important;
+      font-size: 32px;
+      text-transform: uppercase;
+    }
+  
+    .card {
+      box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+      border-radius: 12px;
+      background-color: white;
+      margin: 30px 0;
+  
+      h5 {
+        text-align: center;
+        text-transform: uppercase;
+        a {
+          color: black;
+        }
+      }
+  
+      a:hover {
+        text-decoration: none;
+        color: #00ff15;
+      }
+    }
+  }
+}

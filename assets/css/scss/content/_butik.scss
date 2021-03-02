@@ -1,0 +1,47 @@
+.content-butik {
+  .main {
+    overflow: hidden;
+    h3 {
+      font-weight: 900 !important;
+      font-size: 32px;
+      margin-top: 150px;
+    }
+  }
+
+  footer {
+    background-color: #17492c;
+    padding-top: 50px;
+
+    h3, h5, p {
+      color: #fff;
+    }
+
+    ul.social li a i {
+      color: #fff !important;
+    }
+
+    ul.social li a #instagram {
+      color: #fff !important;
+      -webkit-text-fill-color: unset;
+    }
+
+    @media (max-width: 768px) {
+      h3 {
+        margin-top: 20px;
+      }
+
+      .copyright p {
+        font-size: 14px;
+      }
+    }
+
+    .copyright a {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .copyright a:hover {
+      color: #c0c0c0;
+    }
+  }
+}

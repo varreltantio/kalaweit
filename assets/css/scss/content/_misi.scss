@@ -1,0 +1,51 @@
+.content-misi {
+  .main {
+    border: hidden;
+    h3 {
+      font-weight: 900 !important;
+      font-size: 32px;
+    }
+    p {
+      margin-top: 30px;
+    }
+  }
+
+  .sidebar {
+    h6.header-sidebar {
+      font: 700 20px Roboto Slab, Times New Roman, Times, serif;
+      color: #000;
+      text-transform: uppercase;
+      text-align: center;
+      @media (max-width: 768px) { 
+        font-size: 36px;
+        margin-bottom: 30px;
+      }
+    }
+
+    .divider {
+      background: linear-gradient(90deg, #7aff2d 40%, #02a58f 100%);
+      height: 10px;
+    }
+
+    li.item-misi {
+      list-style: none;
+      color: #fff; 
+      background-color: #17492c;
+      padding-bottom: 30px;
+
+      img {
+        width: 100%;
+      }
+
+      a {
+        color: #00ff15;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      a:hover {
+        color: #fff;
+      }
+    }
+  }
+}

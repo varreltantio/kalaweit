@@ -1,0 +1,46 @@
+/* blog */
+.blog {
+  margin-top: 120px;
+  h3 {
+    font-size: 56px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .card {
+    margin-top: 50px;
+    padding: 0;
+  }
+  
+  .card .card-body {
+    padding-bottom: 0;
+  }
+  
+  .card h5 {
+    font-size: 24px;
+  }
+  
+  .card p {
+    color: grey;
+    font-weight: 200;
+  }
+  
+  .card .fas {
+    margin-top: 30px;
+  }
+  
+  div .owl-dots {
+    display: none;
+  }
+  
+  .tombol {
+    margin-top: 70px;
+  }
+  
+  button {
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 14px 30px;
+  }
+}

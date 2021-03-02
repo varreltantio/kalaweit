@@ -1,0 +1,45 @@
+/* testimonial */
+.testimonial {
+  background-color: #00b31ea6;
+  margin-top: 150px;
+  height: 450px;
+  @media (max-width: 1199.98px) { 
+    height: 500px;
+  }
+
+  .header-testimonial h3 {
+    font-size: 64px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 50px;
+  }
+  
+  .carousel-indicators .pindah {
+    width: 22px;
+    background: #f0e5e5;
+    border-radius: 100%;
+  }
+  
+  .carousel-inner {
+    margin-top: 50px;
+  }
+  
+  img {
+    width: 90px;
+  }
+  
+  h6 {
+    font-size: 24px;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  p {
+    margin-top: -10px;
+    padding-bottom: 30px;
+    font-size: 16px;
+    font-weight: 100;
+    color: #eeeeee;
+  }
+}

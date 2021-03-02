@@ -1,0 +1,38 @@
+/* program */
+.program {
+  margin-top: 150px;
+
+  .header-program {
+    h3 {
+      font-size: 48px;
+      font-weight: bold;
+      color: black;
+    }
+    p {
+      color: #6d6d6d;
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+  
+  .card {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+    border-radius: 12px;
+    background-color: white;
+    margin: 30px 0;
+
+    h5 {
+      text-align: center;
+      text-transform: uppercase;
+      a {
+        color: black;
+      }
+    }
+
+    a:hover {
+      text-decoration: none;
+      color: #33ff00c0;
+    }
+  }
+}

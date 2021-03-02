@@ -1,0 +1,50 @@
+@import "navbar";
+@import "jumbotron";
+@import "misi";
+@import "program";
+@import "tim";
+@import "youtube";
+@import "donasi";
+@import "footer";
+
+@import "auth";
+
+@import "content/misi";
+@import "content/program";
+@import "content/butik";
+@import "content/footer";
+
+/* DESKTOP VERSION */
+@media (min-width: 992px) {
+  .nav-link {
+    text-transform: uppercase;
+    margin-right: 30px;
+  }
+
+  .home .nav-link:hover::after {
+    content: "";
+    display: block;
+    border-bottom: 3px solid #00ff15;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 5px;
+    margin-bottom: -8px;
+  }
+
+  .carousel-jumbotron {
+    height: 640px;
+  }
+
+  .jumbotron .display-4 {
+    font-size: 62px;
+    margin-top: 200px;
+  }
+
+  .workingspace {
+    text-align: left;
+  }
+
+  .testimonial h5 {
+    font-size: 32px;
+  }
+}

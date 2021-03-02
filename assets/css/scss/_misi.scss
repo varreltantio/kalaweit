@@ -1,0 +1,59 @@
+/* misi */
+.misi {
+  margin-top: 150px;
+
+  .header h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: black;
+    text-transform: uppercase;
+  }
+
+  .item-misi:hover {
+    background-color: #17492c;
+    color: #ffff;
+  }
+  
+  .item-misi {
+    text-align: center;
+    margin: 5px;
+    padding: 50px;
+    transition: 0.4s;
+    height: 550px;
+  
+    h5 {
+      margin-top: 30px;
+      font-weight: 700;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+    
+    p {
+      margin-top: 20px;
+      margin-bottom: 30px;
+      font-size: 14px;
+      font-weight: 200;
+    }
+    
+    a {
+      font-size: 14px;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #33ff00c0;
+    }
+    
+    a:hover {
+      text-decoration: none;
+      color: #ffff;
+    }
+    
+    a::before {
+      content: "";
+      position: absolute;
+      margin-top: 25px;
+      width: 50px;
+      height: 2px;
+      background: linear-gradient(90deg, #7aff2d 40%, #02a58f 100%);
+    }
+  }
+}
